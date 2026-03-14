@@ -1,0 +1,29 @@
+name: iOS Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show Xcode version
+        run: xcodebuild -version
+
+      - name: List files
+        run: ls -R
+
+      - name: Build project
+        run: |
+          if ls *.xcodeproj 1> /dev/null 2>&1; then
+            xcodebuild -project *.xcodeproj -scheme JustQuit -sdk iphonesimulator -configuration Debug build
+          else
+            echo "No Xcode project found yet."
+          fi
