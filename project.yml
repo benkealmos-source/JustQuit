@@ -1,0 +1,22 @@
+name: JustQuit
+
+options:
+  bundleIdPrefix: com.justquit
+
+targets:
+  JustQuit:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+
+    sources:
+      - path: JustQuit
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.justquit.app
+        SWIFT_VERSION: 5.9
+        INFOPLIST_FILE: JustQuit/Resources/Info.plist
+
+    scheme:
+      testTargets: []
